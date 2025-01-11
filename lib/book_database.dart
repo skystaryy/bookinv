@@ -28,12 +28,12 @@ Future<List<Book>> fetchBooks() async {
 }
 
 
-Future<void> updateBookAvailability(String id, bool isAvailable) async {
+Future<void> updateBookAvailability(Book book) async {
   final response = await Supabase.instance.client
       .from('books')
-      .update({'is_available': isAvailable})
-      .eq('id', id)
-      .select(); // Gunakan .select() untuk mendapatkan data yang diperbarui
+      .update(book.toMap())
+      .eq('id', book.id)
+      .select();
 
   if (response.isNotEmpty) {
     print('Book updated successfully');
