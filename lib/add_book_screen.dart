@@ -4,7 +4,14 @@ import 'book.dart';
 import 'package:uuid/uuid.dart';
 
 class AddBookScreen extends StatefulWidget {
-  const AddBookScreen({super.key});
+  final bool isEdit;
+  final Book? book;
+
+  const AddBookScreen({
+    super.key,
+    this.isEdit = false, // Berikan nilai default
+    this.book,
+  });
 
   @override
   State<AddBookScreen> createState() => _AddBookScreenState();

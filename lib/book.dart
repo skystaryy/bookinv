@@ -1,4 +1,4 @@
-// import 'package:uuid/uuid.dart';
+import 'book_item.dart';
 
 class Book {
   final String id;

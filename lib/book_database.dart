@@ -3,12 +3,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:bookinv/book.dart';
 
 Future<void> addBook(Book book) async {
-  print('addBook function called'); // Tambahkan ini untuk debug
-
   final response = await Supabase.instance.client
       .from('books')
       .insert(book.toMap())
-      .select();
+      .select(); // Gunakan .select() untuk mendapatkan data yang dimasukkan
 
   if (response.isNotEmpty) {
     print('Book added successfully');
@@ -16,7 +14,6 @@ Future<void> addBook(Book book) async {
     throw Exception('Failed to add book');
   }
 }
-
 
 Future<List<Book>> fetchBooks() async {
   final response = await Supabase.instance.client
