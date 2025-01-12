@@ -45,13 +45,13 @@ class _AddBookScreenState extends State<AddBookScreen> {
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: _authorController,
-              decoration: InputDecoration(labelText: 'Author'),
+              decoration: const InputDecoration(labelText: 'Author'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: isSaving
                   ? null
@@ -59,7 +59,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
                       if (_titleController.text.isEmpty ||
                           _authorController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Please fill in all fields'),
                           ),
                         );
@@ -85,7 +85,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
                         } else {
                           // Mode tambah buku baru
                           final newBook = Book(
-                            id: Uuid().v4(), // ID baru
+                            id: const Uuid().v4(), // ID baru
                             title: _titleController.text,
                             author: _authorController.text,
                             publishedDate: DateTime.now(),
@@ -107,7 +107,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
                       }
                     },
               child: isSaving
-                  ? CircularProgressIndicator(color: Colors.white)
+                  ? const CircularProgressIndicator(color: Colors.white)
                   : Text(widget.isEdit ? 'Update' : 'Save'),
             ),
           ],
